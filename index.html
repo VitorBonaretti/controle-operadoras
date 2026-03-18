@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Operadoras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>Controle de Operadoras</h1>
+    <button class="btn-add" onclick="abrirModalAdicionar()">+</button>
+  </div>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Operadora</th>
+        <th>Funcionando?</th>
+        <th>Versão</th>
+        <th>Motivo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dados vão aqui -->
+    </tbody>
+  </table>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>Editar Operadora</h2>
+
+        <input type="text" id="edit-nome">
+        
+            <select id="edit-funcionando">
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+            </select>
+
+            <input type="text" id="edit-versao">
+            <input type="text" id="edit-motivo">
+
+            <br><br>
+
+            <button onclick="salvarEdicao()">Salvar</button>
+            <button onclick="fecharModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modalAdd" class="modal">
+      <div class="modal-content">
+        <h2>Nova Operadora</h2>
+
+        <input type="text" id="add-nome" placeholder="Nome">
+    
+        <select id="add-funcionando">
+          <option value="SIM">SIM</option>
+          <option value="NÃO">NÃO</option>
+        </select>
+
+        <input type="text" id="add-versao" placeholder="Versão">
+        <input type="text" id="add-motivo" placeholder="Motivo">
+
+        <br><br>
+
+        <button onclick="salvarNova()">Salvar</button>
+        <button onclick="fecharModalAdd()">Cancelar</button>
+      </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
