@@ -89,7 +89,7 @@ function fecharModalAdd() {
 
 window.salvarNova = async function () {
   const nome = document.getElementById("add-nome").value;
-  const funcionando = document.getElementById("add-funcionando").value;
+  const funcionando = document.getElementById("add-problema").value;
   const versao = document.getElementById("add-versao").value;
   const motivo = document.getElementById("add-motivo").value;
 
@@ -113,7 +113,7 @@ function editar(index) {
   const op = dados[index];
 
   document.getElementById("edit-nome").value = op.nome;
-  document.getElementById("edit-funcionando").value = op.funcionando;
+  document.getElementById("edit-problema").value = op.funcionando;
   document.getElementById("edit-versao").value = op.versao;
   document.getElementById("edit-motivo").value = op.motivo;
 
@@ -127,7 +127,7 @@ window.salvarEdicao = async function () {
 
   await updateDoc(doc(window.db, "operadoras", id), {
     nome: document.getElementById("edit-nome").value,
-    funcionando: document.getElementById("edit-funcionando").value,
+    funcionando: document.getElementById("edit-problema").value,
     versao: document.getElementById("edit-versao").value,
     motivo: document.getElementById("edit-motivo").value
   });
