@@ -135,24 +135,7 @@ function fecharModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-function salvarEdicao() {
-  dados[indexEditando] = {
-    nome: document.getElementById("edit-nome").value,
-    funcionando: document.getElementById("edit-funcionando").value,
-    versao: document.getElementById("edit-versao").value,
-    motivo: document.getElementById("edit-motivo").value
-  };
-
-  carregarDados();
-  fecharModal();
-}
-
 // ❌ EXCLUIR
-function excluir(index) {
-  dados.splice(index, 1);
-  carregarDados();
-}
-
 window.excluir = async function (index) {
   const id = dados[index].id;
 
@@ -164,8 +147,6 @@ window.abrirModalAdicionar = abrirModalAdicionar;
 window.fecharModalAdd = fecharModalAdd;
 window.salvarNova = salvarNova;
 window.editar = editar;
-window.excluir = excluir;
-window.salvarEdicao = salvarEdicao;
 window.fecharModal = fecharModal;
 
 // 🚀 INICIAR
