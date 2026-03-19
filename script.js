@@ -101,6 +101,10 @@ window.salvarNova = async function () {
     motivo
   });
 
+  DocumentFragment.getElementById("add-nome").value = "";
+  DocumentFragment.getElementById("add-versao").value = "";
+  DocumentFragment.getElementById("add-motivo").value = "";
+
   fecharModalAdd();
 };
 
@@ -149,5 +153,4 @@ window.salvarNova = salvarNova;
 window.editar = editar;
 window.fecharModal = fecharModal;
 
-// 🚀 INICIAR
 carregarDados();
