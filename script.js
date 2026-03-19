@@ -44,7 +44,11 @@ function renderizar() {
     const linha = `
       <tr>
         <td>${op.nome}</td>
-        <td>${op.funcionando}</td>
+        <td>
+          <span class="${op.funcionando === 'SIM' ? 'status-ok' : 'status-erro'}">
+            ${op.funcionando}
+          </span>
+        </td>
         <td>${op.versao}</td>
         <td>${op.motivo}</td>
         <td>
@@ -103,9 +107,9 @@ window.salvarNova = async function () {
 
   fecharModalAdd();
 
-  DocumentFragment.getElementById("add-nome").value = "";
-  DocumentFragment.getElementById("add-versao").value = "";
-  DocumentFragment.getElementById("add-motivo").value = "";
+  document.getElementById("add-nome").value = "";
+  document.getElementById("add-versao").value = "";
+  document.getElementById("add-motivo").value = "";
 };
 
 // ✏️ EDITAR

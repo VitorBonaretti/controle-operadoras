@@ -28,6 +28,22 @@ button {
   cursor: pointer;
 }
 
+.status-ok {
+  color: white;
+  background-color: green;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.status-erro {
+  color: white;
+  background-color: red;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
 .modal {
   display: none; /* escondido inicialmente */
   position: fixed;
