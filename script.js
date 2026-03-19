@@ -36,6 +36,27 @@ onAuthStateChanged(window.auth, user => {
 });
 
 // 📊 RENDERIZA TABELA
+function renderizar() {
+  const tbody = document.querySelector("#tabela tbody");
+  tbody.innerHTML = "";
+
+  dados.forEach((op, index) => {
+    const linha = `
+      <tr>
+        <td>${op.nome}</td>
+        <td>${op.funcionando}</td>
+        <td>${op.versao}</td>
+        <td>${op.motivo}</td>
+        <td>
+          <button onclick="editar(${index})">Editar</button>
+          <button onclick="excluir(${index})">Excluir</button>
+        </td>
+      </tr>
+    `;
+    tbody.innerHTML += linha;
+  });
+}
+
 function carregarDados() {
   const q = collection(window.db, "operadoras");
 
@@ -49,7 +70,7 @@ function carregarDados() {
       });
     });
 
-    carregarDados();
+    renderizar();
   });
 }
 
@@ -122,7 +143,6 @@ function salvarEdicao() {
     motivo: document.getElementById("edit-motivo").value
   };
 
-  salvarDados();
   carregarDados();
   fecharModal();
 }
@@ -130,7 +150,6 @@ function salvarEdicao() {
 // ❌ EXCLUIR
 function excluir(index) {
   dados.splice(index, 1);
-  salvarDados();
   carregarDados();
 }
 
