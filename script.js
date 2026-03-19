@@ -106,10 +106,6 @@ window.salvarNova = async function () {
   });
 
   fecharModalAdd();
-
-  document.getElementById("add-nome").value = "";
-  document.getElementById("add-versao").value = "";
-  document.getElementById("add-motivo").value = "";
 };
 
 // ✏️ EDITAR
