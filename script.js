@@ -101,11 +101,11 @@ window.salvarNova = async function () {
     motivo
   });
 
+  fecharModalAdd();
+
   DocumentFragment.getElementById("add-nome").value = "";
   DocumentFragment.getElementById("add-versao").value = "";
   DocumentFragment.getElementById("add-motivo").value = "";
-
-  fecharModalAdd();
 };
 
 // ✏️ EDITAR
