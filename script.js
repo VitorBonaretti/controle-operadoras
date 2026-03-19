@@ -49,7 +49,7 @@ function carregarDados() {
       });
     });
 
-    renderizar();
+    carregarDados();
   });
 }
 
@@ -123,7 +123,7 @@ function salvarEdicao() {
   };
 
   salvarDados();
-  renderizar();
+  carregarDados();
   fecharModal();
 }
 
@@ -131,7 +131,7 @@ function salvarEdicao() {
 function excluir(index) {
   dados.splice(index, 1);
   salvarDados();
-  renderizar();
+  carregarDados();
 }
 
 window.excluir = async function (index) {
