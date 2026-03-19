@@ -7,6 +7,15 @@
 </head>
 <body>
 
+  <div id="login">
+    <h2>Login</h2>
+    <input type="email" id="email">
+    <input type="password" id="senha">
+    <button onclick="login()">Entrar</button>
+  </div>
+
+  <div id="app" style="display: none;">
+
   <div class="header">
     <h1>Controle de Operadoras</h1>
     <button class="btn-add" onclick="abrirModalAdicionar()">+</button>
@@ -69,6 +78,30 @@
       </div>
     </div>
 
-  <script src="script.js"></script>
+  </div>
+
+    <script type="module">
+      // Importa Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+      apiKey: "AIzaSyDGJn4szEVEh2b_kGonsHuvPtqL-4OunFU",
+      authDomain: "controle-operadoras.firebaseapp.com",
+      projectId: "controle-operadoras",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      window.auth = auth;
+      window.db = db;
+  
+    </script>
+
+  <script type="module" src="script.js"></script>
+
 </body>
 </html>
