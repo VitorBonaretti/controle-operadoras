@@ -45,12 +45,17 @@ function renderizar() {
       <tr>
         <td>${op.nome}</td>
         <td>
-          <span class="${op.funcionando === 'SIM' ? 'status-ok' : 'status-erro'}">
-            ${op.funcionando}
+          <span class="${op.funcionandoEdi === 'SIM' ? 'status-ok' : 'status-erro'}">
+            ${op.funcionandoEdi}
+          </span>
+        </td>
+        <td>
+          <span class="${op.funcionandoPlanilha === 'SIM' ? 'status-ok' : 'status-erro'}">
+            ${op.funcionandoPlanilha}
           </span>
         </td>
         <td>${op.versao}</td>
-        <td>${op.motivo}</td>
+        <td>${op.observacao}</td>
         <td>
           <button onclick="editar(${index})">Editar</button>
           <button onclick="excluir(${index})">Excluir</button>
@@ -89,9 +94,10 @@ function fecharModalAdd() {
 
 window.salvarNova = async function () {
   const nome = document.getElementById("add-nome").value;
-  const funcionando = document.getElementById("add-problema").value;
+  const funcionandoEdi = document.getElementById("add-EDI").value;
+  const funcionandoPlanilha = document.getElementById("add-Planilha").value;
   const versao = document.getElementById("add-versao").value;
-  const motivo = document.getElementById("add-motivo").value;
+  const observacao = document.getElementById("add-observacao").value;
 
   if (!nome) {
     alert("Preencha o nome!");
@@ -100,9 +106,10 @@ window.salvarNova = async function () {
 
   await addDoc(collection(window.db, "operadoras"), {
     nome,
-    funcionando,
+    funcionandoEdi,
+    funcionandoPlanilha,
     versao,
-    motivo
+    observacao
   });
 
   fecharModalAdd();
@@ -113,9 +120,10 @@ function editar(index) {
   const op = dados[index];
 
   document.getElementById("edit-nome").value = op.nome;
-  document.getElementById("edit-problema").value = op.funcionando;
+  document.getElementById("edit-EDI").value = op.funcionandoEdi;
+  document.getElementById("edit-Planilha").value = op.funcionandoPlanilha;
   document.getElementById("edit-versao").value = op.versao;
-  document.getElementById("edit-motivo").value = op.motivo;
+  document.getElementById("edit-observacao").value = op.observacao;
 
   indexEditando = index;
 
@@ -127,9 +135,10 @@ window.salvarEdicao = async function () {
 
   await updateDoc(doc(window.db, "operadoras", id), {
     nome: document.getElementById("edit-nome").value,
-    funcionando: document.getElementById("edit-problema").value,
+    funcionandoEdi: document.getElementById("edit-EDI").value,
+    funcionandoPlanilha: document.getElementById("edit-Planilha").value,
     versao: document.getElementById("edit-versao").value,
-    motivo: document.getElementById("edit-motivo").value
+    observacao: document.getElementById("edit-observacao").value
   });
 
   fecharModal();

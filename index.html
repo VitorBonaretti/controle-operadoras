@@ -25,9 +25,10 @@
     <thead>
       <tr>
         <th>Operadora</th>
-        <th>Problema?</th>
+        <th>EDI</th>
+        <th>Planilha</th>
         <th>Versão</th>
-        <th>Motivo</th>
+        <th>Observação</th>
         <th>Ações</th>
       </tr>
     </thead>
@@ -42,13 +43,18 @@
 
         <input type="text" id="edit-nome">
         
-            <select id="edit-problema">
+            <select id="edit-EDI">
             <option value="SIM">SIM</option>
             <option value="NÃO">NÃO</option>
             </select>
 
+            <select id="edit-Planilha">
+              <option value="SIM">SIM</option>
+              <option value="NÃO">NÃO</option>
+            </select>
+
             <input type="text" id="edit-versao">
-            <input type="text" id="edit-motivo">
+            <input type="text" id="edit-observacao">
 
             <br><br>
 
@@ -63,13 +69,19 @@
 
         <input type="text" id="add-nome" placeholder="Nome">
     
-        <select id="add-problema">
+        <select id="add-EDI">
           <option value="SIM">SIM</option>
           <option value="NÃO">NÃO</option>
         </select>
 
+        <select id="add-Planilha">
+          <option value="SIM">SIM</option>
+          <option value="NÃO">NÃO</option>
+        </select>
+
+
         <input type="text" id="add-versao" placeholder="Versão">
-        <input type="text" id="add-motivo" placeholder="Motivo">
+        <input type="text" id="add-observacao" placeholder="Observação">
 
         <br><br>
 
