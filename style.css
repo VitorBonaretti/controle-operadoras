@@ -38,7 +38,7 @@ button {
 
 .status-erro {
   color: white;
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   padding: 5px 10px;
   border-radius: 10px;
   font-weight: bold;
@@ -78,6 +78,18 @@ button {
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
+}
+
+.icone-filtro {
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+th select {
+  width: 100%;
+  margin-top: 5px;
+  justify-items: center;
 }
 
 .form input, .form select {

@@ -11,6 +11,8 @@ import {
 
 let dados = [];
 let indexEditando = null;
+let filtroPlanilha = "";
+let filtroEdi = "";
 
 // 🔐 LOGIN
 window.login = async function () {
@@ -40,7 +42,20 @@ function renderizar() {
   const tbody = document.querySelector("#tabela tbody");
   tbody.innerHTML = "";
 
-  dados.forEach((op, index) => {
+  let dadosFiltrados = [...dados];
+
+  // 🔎 FILTRO PLANILHA
+  if (filtroPlanilha) {
+    dadosFiltrados = dadosFiltrados.filter(op => op.funcionandoPlanilha === filtroPlanilha);
+  }
+
+  // 🔎 FILTRO EDI
+  if (filtroEdi) {
+    dadosFiltrados = dadosFiltrados.filter(op => op.funcionandoEdi === filtroEdi);
+  }
+
+  // 🔥 AGORA SIM renderiza filtrado
+  dadosFiltrados.forEach((op, index) => {
     const linha = `
       <tr>
         <td>${op.nome}</td>
@@ -65,6 +80,17 @@ function renderizar() {
     tbody.innerHTML += linha;
   });
 }
+
+  let dadosFiltrados = [...dados];
+
+  if (filtroPlanilha) {
+    dadosFiltrados = dadosFiltrados.filter(op => op.planilha === filtroPlanilha);
+  }
+
+  if (filtroEdi) {
+    dadosFiltrados = dadosFiltrados.filter(op => op.edi === filtroEdi);
+  }
+
 
 function carregarDados() {
   const q = collection(window.db, "operadoras");
@@ -147,6 +173,13 @@ window.salvarEdicao = async function () {
 function fecharModal() {
   document.getElementById("modal").style.display = "none";
 }
+
+window.aplicarFiltros = function () {
+  filtroPlanilha = document.getElementById("filtro-Planilha").value;
+  filtroEdi = document.getElementById("filtro-EDI").value;
+
+  renderizar();
+};
 
 // ❌ EXCLUIR
 window.excluir = async function (index) {

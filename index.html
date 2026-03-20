@@ -24,9 +24,31 @@
   <table id="tabela">
     <thead>
       <tr>
-        <th>Operadora</th>
-        <th>EDI</th>
-        <th>Planilha</th>
+        <th>
+          Operadora <br>
+          <select onchange="aplicarFiltros()" id="filtro-operadora">
+            <option value="">Todas</option>
+          </select>
+        </th>
+
+        <th>
+          EDI Funcionando? <br>
+          <select id="filtro-EDI" onchange="aplicarFiltros()">
+            <option value="">Todos</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+          </select>
+        </th>
+
+        <th>
+          Planilha Funcionando? <br>
+          <select id="filtro-Planilha" onchange="aplicarFiltros()">
+            <option value="">Todos</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+          </select>
+        </th>
+
         <th>Versão</th>
         <th>Observação</th>
         <th>Ações</th>
