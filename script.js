@@ -71,6 +71,7 @@ function renderizar() {
         </td>
         <td>${op.versao}</td>
         <td>${op.observacao}</td>
+        <td>${op.bugtracker}</td>
         <td>
           <button onclick="editar(${index})">Editar</button>
           <button onclick="excluir(${index})">Excluir</button>
@@ -124,6 +125,7 @@ window.salvarNova = async function () {
   const funcionandoPlanilha = document.getElementById("add-Planilha").value;
   const versao = document.getElementById("add-versao").value;
   const observacao = document.getElementById("add-observacao").value;
+  const bugtracker = document.getElementById("add-bugtracker").value;
 
   if (!nome) {
     alert("Preencha o nome!");
@@ -135,7 +137,8 @@ window.salvarNova = async function () {
     funcionandoEdi,
     funcionandoPlanilha,
     versao,
-    observacao
+    observacao,
+    bugtracker
   });
 
   fecharModalAdd();
@@ -150,6 +153,7 @@ function editar(index) {
   document.getElementById("edit-Planilha").value = op.funcionandoPlanilha;
   document.getElementById("edit-versao").value = op.versao;
   document.getElementById("edit-observacao").value = op.observacao;
+  document.getElementById("edit-bugtracker").value = op.bugtracker;
 
   indexEditando = index;
 
@@ -164,7 +168,8 @@ window.salvarEdicao = async function () {
     funcionandoEdi: document.getElementById("edit-EDI").value,
     funcionandoPlanilha: document.getElementById("edit-Planilha").value,
     versao: document.getElementById("edit-versao").value,
-    observacao: document.getElementById("edit-observacao").value
+    observacao: document.getElementById("edit-observacao").value,
+    bugtracker: document.getElementById("edit-bugtracker").value
   });
 
   fecharModal();
